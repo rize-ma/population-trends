@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# 都道府県別人口推移グラフアプリ  
+  
+## サービスのURL
+https://population-trends-six.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 技術スタック
+| Category              | Technology Stack                                                                      |
+|:-----------           |:------------                                                                          |
+| 言語                   | [TypeScript](https://www.typescriptlang.org/)                                         | 
+| CSSフレームワーク        | [TailwindCSS](https://tailwindcss.com/)                                               | 
+| コンポーネントライブラリ  | [MantineUI](https://mantine.dev/) (使用用途はグラフ描画とhooksのみ)                        | 
+| ビルドツール            | [Vite](https://ja.vite.dev/)                                                           |
+| テスト                 | [Vitest](https://vitest.dev/), [msw](https://mswjs.io/)                                |
+| CI/CD                 | [GitHub Actions](https://docs.github.com/ja/actions), [Vercel](https://vercel.com/)    |
 
-Currently, two official plugins are available:
+## 開発環境構築手順
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### リポジトリクローン
+```
+git clone https://github.com/rize-ma/population-trends.git
+```
+### パッケージのインストール
+```
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 環境変数設定
+envファイルに以下を設定
 ```
+VITE_API_KEY=<APIキー>
+VITE_API_BASE_URL=<ベースURL>
+```
+
+### 開発サーバーの起動
+```
+npm dev
+```
+
+
+## ブランチモデル
+
+| ブランチ名       | 派生元         | 説明                     |
+|:-----------    |:------------  |:------------             |
+| main           |  　　　　　　　　|リリースされたコードを管理する |
+| develop        |               |開発中のコードを管理する      | 
+| feat/*         |develop        |機能開発行う                 |
+| fix/*          |main,develop   |バグ、不具合の修正を行う       |
+| docs/*         |develop        |ドキュメント更新行う          |
+| refactor/*     |develop        |コード改善(リファクタ)を行う   |
+| perf/*         |develop        |パフォーマンス改善を行う       |
+| test/*         |develop        |テストの実装を行う            |
+| chore/*        |develop        |CI/CD,ビルド等を行う         |
