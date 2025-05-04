@@ -9,3 +9,13 @@ export interface FetchPrefecturesResponse {
   message: string | null;
   result: PrefectureResult;
 }
+
+export type Region =
+  | 'hokkaido'
+  | 'tohoku'
+  | 'kanto'
+  | 'chubu'
+  | 'kansai'
+  | 'chugoku'
+  | 'shikoku'
+  | 'kyushu';
