@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { afterEach, vi } from 'vitest';
+import { afterAll, afterEach, beforeAll, vi } from 'vitest';
+import { server } from './mock/server';
 
 class ResizeObserver {
   observe() {}
@@ -9,6 +10,11 @@ class ResizeObserver {
 
 globalThis.ResizeObserver = ResizeObserver;
 
+beforeAll(() => {
+  server.listen();
+});
 afterEach(() => {
+  server.resetHandlers();
   vi.unstubAllEnvs();
 });
+afterAll(() => server.close());
