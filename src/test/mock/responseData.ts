@@ -1,5 +1,5 @@
-import type { FetchPopulationResponse } from '../types/population';
-import type { FetchPrefecturesResponse } from '../types/prefecture';
+import type { FetchPopulationResponse } from '../../types/population';
+import type { FetchPrefecturesResponse } from '../../types/prefecture';
 
 export const PREFECTURES_RESPONSE: FetchPrefecturesResponse = {
   message: null,
