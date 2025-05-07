@@ -49,4 +49,4 @@ npm dev
 | refactor/*     |develop        |コード改善(リファクタ)を行う   |
 | perf/*         |develop        |パフォーマンス改善を行う       |
 | test/*         |develop        |テストの実装を行う            |
-| chore/*        |develop        |CI/CD,ビルド等を行う         |
+| chore/*        |develop        |CI/CD等を行う         |
